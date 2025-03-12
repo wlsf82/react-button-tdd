@@ -16,4 +16,12 @@ describe('<Pagination />', () => {
     cy.contains('button', 'Next').should('be.disabled')
     cy.contains('span', 'Page 2 of 2').should('be.visible')
   })
+
+  it('renders in the only page (Prev and Next buttons disabled)', () => {
+    cy.mount(<Pagination currentPage={1} totalPages={1} />)
+
+    cy.contains('button', 'Prev').should('be.disabled')
+    cy.contains('button', 'Next').should('be.disabled')
+    cy.contains('span', 'Page 1 of 1').should('be.visible')
+  })
 })
