@@ -22,4 +22,14 @@ describe('<Button />', () => {
       .find('svg.lucide-send')
       .should('exist')
   })
+
+  it('triggers the button onclick event on click', () => {
+    const onClickSpy = cy.spy().as('onClickSpy')
+
+    cy.mount(<Button label='Ok' onClick={onClickSpy} />)
+
+    cy.contains('button', 'Ok').click()
+
+    cy.get('@onClickSpy').should('have.been.calledOnce')
+  })
 })
