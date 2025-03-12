@@ -1,6 +1,11 @@
-const Button = ({ label = '' }) => {
+import './Button.css'
+
+const Button = ({
+  className = '',
+  label = '',
+}) => {
   return (
-    <button>
+    <button className={`button ${className}`}>
       {label}
     </button>
   )
