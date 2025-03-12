@@ -2,7 +2,7 @@ import Pagination from '.'
 
 describe('<Pagination />', () => {
   it('renders in the first page (Prev button disabled)', () => {
-    cy.mount(<Pagination currentPage={1} />)
+    cy.mount(<Pagination currentPage={1} totalPages={2} />)
 
     cy.contains('button', 'Prev').should('be.disabled')
     cy.contains('button', 'Next').should('be.enabled')
