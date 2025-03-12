@@ -32,4 +32,10 @@ describe('<Button />', () => {
 
     cy.get('@onClickSpy').should('have.been.calledOnce')
   })
+
+  it('renders a disabled button', () => {
+    cy.mount(<Button label="I'm disabled" disabled={true} />)
+
+    cy.contains('button', "I'm disabled").should('be.disabled')
+  })
 })
